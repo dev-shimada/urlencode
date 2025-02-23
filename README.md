@@ -1,3 +1,7 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/dev-shimada/urlencode)](https://goreportcard.com/report/github.com/dev-shimada/urlencode)
+[![CI](https://github.com/dev-shimada/urlencode/actions/workflows/CI.yaml/badge.svg)](https://github.com/dev-shimada/urlencode/actions/workflows/CI.yaml)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/dev-shimada/urlencode/blob/master/LICENSE)
+
 # urlencode
 
 ## Usage

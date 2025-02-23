@@ -1,0 +1,13 @@
+
+project_name: urlencode
+builds:
+  - main: ./main.go
+    binary: urlencode
+archives:
+  - format: tar.gz
+    files:
+      - urlencode
+checksum:
+  name_template: '{{ .ProjectName }}_checksums.txt'
+release:
+  draft: true
