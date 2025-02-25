@@ -54,6 +54,20 @@ release:
 
 brews:
   - name: urlencode
+    install: |
+        bin.install "{{ .ProjectName }}"
+        # Install bash completion
+        output = Utils.safe_popen_read("#{bin}/{{ .ProjectName }} completion bash")
+        (bash_completion/"{{ .ProjectName }}").write output
+  
+        # Install zsh completion
+        output = Utils.safe_popen_read("#{bin}/{{ .ProjectName }} completion zsh")
+        (zsh_completion/"_{{ .ProjectName }}").write output
+        
+        # Install fish completion
+        output = Utils.safe_popen_read("#{bin}/{{ .ProjectName }} completion fish")
+        (fish_completion/"{{ .ProjectName }}.fish").write output
+
     repository:
       owner: dev-shimada
       name: homebrew-urlencode
