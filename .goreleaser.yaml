@@ -14,7 +14,8 @@ builds:
       - darwin
 
 archives:
-  - format: tar.gz
+  - formats: 
+    - tar.gz
     name_template: >-
       {{ .ProjectName }}_
       {{- title .Os }}_
@@ -24,7 +25,8 @@ archives:
       {{- if .Arm }}v{{ .Arm }}{{ end }}
     format_overrides:
       - goos: windows
-        format: zip
+        formats: 
+          - zip 
 
 changelog:
   sort: asc
@@ -44,18 +46,21 @@ release:
 # Homebrew Cask
 # --------------------------------------------------
 homebrew_casks:
-  - name: urlencode
+  - name: "{{ .ProjectName }}"
     description: "URL encoder / decoder CLI tool"
-    homepage: "https://github.com/dev-shimada/urlencode"
+    homepage: "https://github.com/dev-shimada/{{ .ProjectName }}"
 
     repository:
       owner: dev-shimada
-      name: homebrew-urlencode
-      branch: main
+      name: homebrew-{{ .ProjectName }}
+      branch: "{{ .ProjectName }}"
       token: "{{ .Env.PRIVATE_GITHUB_TOKEN }}"
-
+      
       pull_request:
         enabled: true
         draft: false
+        base:
+          branch: main
 
-    binary: urlencode
+    binaries: 
+      - "{{ .ProjectName }}"
