@@ -43,7 +43,7 @@ release:
 # --------------------------------------------------
 # Homebrew Cask
 # --------------------------------------------------
-casks:
+homebrew_casks:
   - name: urlencode
     description: "URL encoder / decoder CLI tool"
     homepage: "https://github.com/dev-shimada/urlencode"
@@ -59,14 +59,3 @@ casks:
         draft: false
 
     binary: urlencode
-
-    # 補完ファイル生成
-    postflight: |
-      system_command "#{bin}/urlencode", args: ["completion", "bash"], stdout: "#{bash_completion}/urlencode"
-      system_command "#{bin}/urlencode", args: ["completion", "zsh"],  stdout: "#{zsh_completion}/_urlencode"
-      system_command "#{bin}/urlencode", args: ["completion", "fish"], stdout: "#{fish_completion}/urlencode.fish"
-
-    uninstall_postflight: |
-      rm_f "#{bash_completion}/urlencode"
-      rm_f "#{zsh_completion}/_urlencode"
-      rm_f "#{fish_completion}/urlencode.fish"
