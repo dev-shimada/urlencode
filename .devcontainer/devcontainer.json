@@ -1,10 +1,6 @@
 {
     "name": "urlencode",
-    "build": {
-        "context": ".",
-        "dockerfile": "Dockerfile",
-        "target": "vscode"
-    },
+    "image": "ghcr.io/dev-shimada/golang-1.25-trixie:latest",
     "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
@@ -17,6 +13,5 @@
     "mounts": [
         "source=${localWorkspaceFolder}/,target=/workspace,type=bind"
     ],
-    "remoteUser": "root",
-    "postCreateCommand": "/bin/sh .devcontainer/post_create.sh"
+    "remoteUser": "root"
 }
