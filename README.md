@@ -21,7 +21,7 @@ echo "Hello%20World" | urlencode decode
 ## Installation
 Install via Homebrew:
 ```
-brew install dev-shimada/urlencode/urlencode
+brew install --casks dev-shimada/urlencode/urlencode
 ```
 
 ## Generating Shell Completions
